@@ -1,4 +1,10 @@
 <?php 
-    echo 'Arquivo de Funções';
+    function saudacao()
+    {
+        return 'boa tarde';
+    }
 
-?>
+    function resumirTexto()
+    {
+        return 'texto resumido';
+    }
