@@ -8,12 +8,23 @@
 </head>
 <body>
     <?php 
+        //declare(strict_types = 1);
         require_once 'sistema/configuracao.php';
         include_once 'helpers.php';
 
+        $texto = 'texto para resumir';
+        
+        $string = 'texto';
+        $int = 10;
+        $float = 9.99;
+        $bool = true;
+        $nulo = null;
+
+        var_dump($texto);
+        echo '<hr>';
         echo saudacao();
         echo '<hr>';
-        echo resumirTexto();
+        echo resumirTexto($texto, 100, 'continue');
     ?>
 </body>
 </html>
