@@ -11,9 +11,9 @@
         require_once 'sistema/configuracao.php';
         include_once 'helpers.php';
 
-        $texto = '<h1>texto</h1> <p>para</p> resumir';
-        
-        echo resumirTexto($texto, 50);
+        $data = date('d/m/Y H:i:s');
+
+        echo $data;
     ?>
 </body>
 </html>

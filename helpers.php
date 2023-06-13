@@ -1,4 +1,15 @@
 <?php
+
+function formatarValor(float $valor): string
+{
+    return number_format($valor, 2, ',', '.' );
+}
+
+function formatarNumero(string $numero = null): string
+{
+    return number_format($numero ?: 0,0,'.','.');
+}
+
 function saudacao(): string
 {
     $hora = date('H');
