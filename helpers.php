@@ -1,10 +1,77 @@
 <?php
 
+
+/**
+ * Valida uma url
+ * @param string $url
+ * @return bool
+ */
+function validarUrl(string $url): bool
+{
+    return filter_var($url, FILTER_VALIDATE_URL);
+}
+
+/**
+ * Valida um endereço de e-mail
+ * @param string $email
+ * @return bool 
+ * */ 
+function validarEmail(string $email): bool
+{
+    return filter_var($email, FILTER_VALIDATE_EMAIL);
+}
+
+/**
+ * Conta o tempo decorrido de uma data
+ * @param string $data
+ * @return string
+*/
+function contarTempo(string $data)
+{
+    $agora = strtotime(date('Y-m-d H:i:s'));
+    $tempo = strtotime($data);
+    $diferenca = $agora - $tempo;
+
+    $segundos = $diferenca;
+    $minutos = round($diferenca / 60);
+    $horas = round($diferenca / 3600);
+    $dias = round($diferenca / 86400);
+    $semanas = round($diferenca / 604800);
+    $meses = round($diferenca / 2419200);
+    $anos = round($diferenca / 29030400);
+
+    if ($segundos <= 60) {
+        return 'agora';
+    } elseif ($minutos <= 60) {
+        return $minutos == 1 ? 'Há 1 minuto' : 'Há '.$minutos.' minutos';
+    } elseif ($horas <= 24) {
+        return $horas == 1 ? 'Há 1 hora' : 'Há '.$horas.' horas';
+    } elseif ($dias <= 7) {
+        return $dias == 1 ? 'Há 1 dia' : 'Há '.$dias.' dias';
+    } elseif ($semanas <= 4) {
+        return $semanas == 1 ? 'Há 1 semana' : 'Há '.$semanas.'  semanas';
+    } elseif ($meses <= 12) {
+        return $meses == 1 ? 'Há 1 mês' : 'Há '.$meses.' meses';
+    } else {
+        return $anos == 1 ? 'Há 1 ano' : 'Há '.$anos.' anos';
+    }
+}
+
+/** 
+ * Formata um valor com ponto e virgula
+ * @param float $valor
+ * @return string
+*/
 function formatarValor(float $valor): string
 {
     return number_format($valor, 2, ',', '.' );
 }
 
+/**
+ * Formata um número com pontos
+ * @param int $numero
+ * @return string 
+*/
 function formatarNumero(string $numero = null): string
 {
     return number_format($numero ?: 0,0,'.','.');

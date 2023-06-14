@@ -11,9 +11,16 @@
         require_once 'sistema/configuracao.php';
         include_once 'helpers.php';
 
-        $data = date('d/m/Y H:i:s');
+        /*
+        if(validarEmail('l.alves158@hotmail.com')){
+            echo 'Endereço de e-mail válido';
+        } else {
+            echo 'E-mail inválido';
+        }*/
 
-        echo $data;
+        var_dump(validarUrl('http://localhost/blog/'));
+
+        //var_dump(validarEmail('l.alves158@gmail.com'));
     ?>
 </body>
 </html>
