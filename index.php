@@ -11,16 +11,8 @@
         require_once 'sistema/configuracao.php';
         include_once 'helpers.php';
 
-        /*
-        if(validarEmail('l.alves158@hotmail.com')){
-            echo 'Endereço de e-mail válido';
-        } else {
-            echo 'E-mail inválido';
-        }*/
-
-        var_dump(validarUrl('http://localhost/blog/'));
-
-        //var_dump(validarEmail('l.alves158@gmail.com'));
+        // var_dump(localhost());
+        echo url('/admin');
     ?>
 </body>
 </html>

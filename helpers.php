@@ -1,5 +1,26 @@
 <?php
 
+function url(string $url): string
+{
+    $servidor = filter_input(INPUT_SERVER, 'SERVER_NAME');
+    $ambiente = ($servidor == 'localhost' ? URL_DESENVOLVIMENTO : URL_PRODUCAO);
+
+    if(str_starts_with($url, '/')){
+        return $ambiente.$url;
+    }
+
+    return $ambiente.'/'.$url;
+}
+
+function localhost(): bool
+{
+    $servidor = filter_input(INPUT_SERVER, 'SERVER_NAME');
+
+    if($servidor == 'localhost'){
+        return true;
+    }
+    return false;
+}
 
 /**
  * Valida uma url
@@ -7,6 +28,20 @@
  * @return bool
  */
 function validarUrl(string $url): bool
+{
+    if(mb_strlen($url) < 10){
+        return false;
+    }
+    if(!str_contains($url, '.')){
+        return false;
+    }
+    if(str_contains($url, 'http://') or str_contains($url, 'https://')){
+        return true;
+    }
+    return false;
+}
+
+function validarUrlComFiltro(string $url): bool
 {
     return filter_var($url, FILTER_VALIDATE_URL);
 }
