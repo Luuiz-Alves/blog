@@ -1,5 +1,54 @@
 <?php
 
+function slug(string $string): string
+{
+    $mapa['a'] = 'ã';
+
+    $mapa['b'] = 'a                     ';
+
+    $slug = strtr(utf8_decode($string), utf8_decode($mapa['a']), $mapa['b']);
+
+    $slug = strip_tags(trim($slug));
+    $slug = str_replace(' ', '_', $slug);
+    $slug = str_replace(['_____','____','___','__','_'],'_', $slug);
+
+    return strtolower(utf8_decode($slug));
+}
+
+function dataAtual(): string
+{
+    $diaMes = date('d');
+    $diaSemana = date('w');
+    $mes = date('n') - 1;
+    $ano = date('Y');
+
+    $nomesDiasDaSemana = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sabádo'];
+
+    $nomeDosMeses = [
+        'Janeiro',
+        'Fevereiro',
+        'Março',
+        'Abril',
+        'Maio',
+        'Junho',
+        'Julho',
+        'Agosto',
+        'Setembro',
+        'Outubro',
+        'Novembro',
+        'Dezembro'
+    ];
+
+    $dataFormatada = $nomesDiasDaSemana[$diaSemana].', '.$diaMes.' de '.$nomeDosMeses[$mes].' de '.$ano;
+
+    return $dataFormatada;
+}
+
+/**
+ * Monta url de acordo com o ambiente
+ * @param string $url parte da url ex. admin
+ * @return string url completa
+ */
 function url(string $url): string
 {
     $servidor = filter_input(INPUT_SERVER, 'SERVER_NAME');
