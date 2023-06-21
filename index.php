@@ -11,13 +11,7 @@
         require_once 'sistema/configuracao.php';
         include_once 'helpers.php';
 
-        echo slug("Adão 'Negro' - '2022'").'<hr>';
-        echo slug("Avatar 2").'<hr>';
-        echo slug("Não! Não olhe!").'<hr>';
-        echo slug("Sonic 2").'<hr>';
-        echo slug("Dsiney Plus++").'<hr>';
-        echo slug("Os melhores filmes").'<hr>';
-        echo slug("Teste!@$%¨!@#$2$###6?8????!!!").'<hr>';
+        echo saudacao();
     ?>
 </body>
 </html>

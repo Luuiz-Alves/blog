@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Gera um url amigável
+ * @param string $string
+ * @return string slug
+ */
 function slug(string $string): string
 {
     $mapa['a'] = 'ã';
@@ -15,6 +20,9 @@ function slug(string $string): string
     return strtolower(utf8_decode($slug));
 }
 
+
+/**
+ **/
 function dataAtual(): string
 {
     $diaMes = date('d');
@@ -165,15 +173,37 @@ function saudacao(): string
 {
     $hora = date('H');
 
-    if ($hora >= 0 && $hora <= 5) {
-        $saudacao = 'boa madrugrada';
+    /*if ($hora >= 0 && $hora <= 5) {
+        $saudacao = 'Boa Madrugrada';
     } elseif ($hora >= 6 and $hora <= 12) {
-        $saudacao = 'bom dia';
+        $saudacao = 'Bom Dia';
     } elseif ($hora >= 13 and $hora <= 18) {
-        $saudacao = 'boa tarde';
+        $saudacao = 'Boa Tarde';
     } else {
-        $saudacao = 'boa noite';
+        $saudacao = 'Boa Noite';
     }
+
+    switch ($hora) {
+        case $hora >= 0 && $hora <= 5:
+            $saudacao = 'Boa Madrugrada';
+            break;
+        case $hora >= 6 and $hora <= 12:
+            $saudacao = 'Bom Dia';
+            break;
+        case $hora >= 13 and $hora <= 18:
+            $saudacao = 'Boa Tarde';
+            break;
+        default:
+            $saudacao = 'Boa Noite';
+    } */
+
+    $saudacao = match (true){
+        $hora >= 0 and $hora <= 5 => 'Boa Madrugada',
+        $hora >= 6 and $hora <= 13 => 'Bom Dia',
+        $hora >= 13 and $hora <= 18 => 'Boa Tarde',
+        default => 'Boa Noite'
+    };
+
     return $saudacao;
 }
 
