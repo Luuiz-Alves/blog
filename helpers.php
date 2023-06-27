@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Válida um número de CPF
+ * @param string $cpf
+ * @return bool
+ */
 function validarCpf(string $cpf) : bool
 {
     $cpf = limparNumero($cpf);
