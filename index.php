@@ -11,7 +11,19 @@
         require_once 'sistema/configuracao.php';
         include_once 'helpers.php';
 
-        echo saudacao();
+        $cpf = '16932570769';
+
+        var_dump(validarCpf($cpf));
+
+        // echo $limparNumero = preg_replace('/[^0-9]/', '', $cpf);
+
+        // while ($numero <= 10){
+        //    echo $numero++;
+        // }
+        // for($i = 1; $i <= 10; $i++){
+        //    echo ($i % 2 ? $i.' impar' : $i.' par').'<br>';
+        //    echo $i.' x '.$numero.' = '.$i*$numero.'<br>';
+        // }
     ?>
 </body>
 </html>
