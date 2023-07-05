@@ -7,17 +7,13 @@
     <title>Document</title>
 </head>
 <body>
-    <?php 
-        require_once 'sistema/configuracao.php';
-        include_once 'sistema/Nucleo/helpers.php';
-        include 'sistema/Nucleo/Mensagem.php';
-        include 'sistema/Nucleo/Controlador.php';
-        
-        use sistema\Nucleo\Controlador;
+    <?php
+    
+    require 'vendor/autoload.php';
 
-        $controlador = new Controlador();
-        echo '<hr>';
-        var_dump($controlador);
+    $document = new \Bissolli\ValidadorCpfCnpj\CPF('16932570769');
+
+    var_dump($document->isValid());
     ?>
 </body>
 </html>
