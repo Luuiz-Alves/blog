@@ -10,10 +10,9 @@
     <?php
     
     require 'vendor/autoload.php';
-
-    $document = new \Bissolli\ValidadorCpfCnpj\CPF('16932570769');
-
-    var_dump($document->isValid());
+    
     ?>
+
+    <H1>OLA</H1>
 </body>
 </html>
