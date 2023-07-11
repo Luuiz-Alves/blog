@@ -8,11 +8,10 @@
 </head>
 <body>
     <?php
-    
     require 'vendor/autoload.php';
+    require 'rotas.php';
+
     
     ?>
-
-    <H1>OLA</H1>
 </body>
 </html>

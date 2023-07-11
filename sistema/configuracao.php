@@ -12,5 +12,5 @@ define('SITE_DESCRICAO', 'UnSet - Tecnologia em Sistemas');
 define('URL_PRODUCAO', 'https://unset.com.br');
 define('URL_DESENVOLVIMENTO', 'http://localhost/blog');
 
-
+define('URL_SITE', 'blog/');
 ?>
