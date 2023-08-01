@@ -1,9 +1,13 @@
 <?php 
 
 namespace sistema\Suporte;
+
 use Twig\Lexer;
 use sistema\Nucleo\Helpers;
 
+/**
+ * Classe Template
+ */
 class Template
 {
     private \Twig\Environment $twig;
@@ -19,11 +23,26 @@ class Template
         $this->twig->setLexer($lexer);
     }
 
+    /**
+     * Metodo responsavel por realizar a renderização das views
+     * @param string $view
+     * @param array $dados
+     * @return string
+     */
     public function renderizar(string $view, array $dados):string
     {
-        return $this->twig->render($view, $dados);
+        try {
+            return $this->twig->render($view, $dados);
+        } catch (\Twig\Error\LoaderError | \Twig\Error\SyntaxError $ex) {
+
+            echo 'Erro:: ' . $ex->getMessage();
+        }
     }
 
+    /**
+     * Metodo responsavel por chamar funções da classe Helpers
+     * @return void
+     */
     private function helpers():void
     {
         array(

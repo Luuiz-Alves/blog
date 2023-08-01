@@ -5,6 +5,11 @@ namespace sistema\Nucleo;
 use PDO;
 use PDOException;
 
+/**
+ * Classe Conexao - Padrão Singleton: Retorna uma instância única de uma classe.
+ *
+ * @author Ronaldo Aires
+ */
 class Conexao
 {
     private static $instancia;
@@ -27,16 +32,23 @@ class Conexao
             } catch (PDOException $ex) {
                 die("Erro de conexão:: ".$ex->getMessage());
             }
-
-            return self::$instancia;
         }
+        return self::$instancia;
     }
 
+    /**
+     * Construtor do tipo protegido previne que uma nova instância da
+     * Classe seja criada através do operador `new` de fora dessa classe.
+     */
     protected function __construct()
     {
         
     }
 
+    /**
+     * Método clone do tipo privado previne a clonagem dessa instância da classe
+     * @return void
+     */
     private function __clone(): void
     {
 

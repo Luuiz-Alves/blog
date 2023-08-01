@@ -1,33 +1,32 @@
-<?php 
+<?php
 
 namespace sistema\Modelo;
 
 use sistema\Nucleo\Conexao;
 
 /**
- * Classe PostModelo
+ * Classe CategoriaModelo
  *
  * @author Luiz Alves
  */
-class PostModelo
+class CategoriaModelo
 {
     public function busca(): array
     {
-        $query = "SELECT * FROM `posts` ORDER BY id DESC";
+        $query = "SELECT * FROM categorias WHERE status = 1 ORDER BY titulo ASC "; 
         $stmt = Conexao::getInstancia()->query($query);
         $resultado = $stmt->fetchAll();
 
-        return $resultado;
+        return $resultado;        
     }
-
+    
     public function buscaPorId(int $id): bool|object
     {
-        $query = "SELECT * FROM `posts` WHERE id = {$id}";
+        $query = "SELECT * FROM categorias WHERE id = {$id} "; 
         $stmt = Conexao::getInstancia()->query($query);
         $resultado = $stmt->fetch();
 
-        return $resultado;
+        return $resultado; 
     }
+    
 }
-
-?>

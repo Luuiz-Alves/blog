@@ -28,6 +28,11 @@ class Mensagem {
         return $this;
     }
 
+    /**
+     * Método responsável pelas mensagens de erro
+     * @param string $mensagem
+     * @return Mensagem
+     */
     public function erro(string $mensagem): Mensagem 
     {
         $this->css = 'alert alert-danger';
@@ -35,6 +40,11 @@ class Mensagem {
         return $this;
     }
 
+    /**
+     * Método responsável pelas mensagens de alerta
+     * @param string $mensagem
+     * @return Mensagem
+     */
     public function alerta(string $mensagem): Mensagem 
     {
         $this->css = 'alert alert-warning';
@@ -42,6 +52,11 @@ class Mensagem {
         return $this;
     }
 
+    /**
+     * Método responsável pelas mensagens de informações
+     * @param string $mensagem
+     * @return Mensagem
+     */
     public function informa(string $mensagem): Mensagem 
     {
         $this->css = 'alert alert-primary';
@@ -58,6 +73,11 @@ class Mensagem {
         return "<div class='{$this->css}'>{$this->texto}</div>";
     }
 
+    /**
+     * Método responsável por filtrar as mensagens
+     * @param string $mensagem
+     * @return string
+     */
     private function filtrar(string $mensagem): string
     {
         return filter_var($mensagem, FILTER_SANITIZE_SPECIAL_CHARS);

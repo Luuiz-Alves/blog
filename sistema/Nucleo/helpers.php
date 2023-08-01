@@ -40,6 +40,12 @@ public static function validarCpf(string $cpf) : bool
         return true;
     } 
 }
+
+/**
+ * Limpa todos os caracteres não numéricos
+ * @param string $numero
+ * @return string
+ */
 public static function limparNumero(string $numero): string
 {
     return preg_replace('/[^0-9]/', '', $numero);
@@ -68,7 +74,9 @@ public static function slug(string $string): string
 
 
 /**
- **/
+ * Data atual formatada 
+ * @return string
+ */
 public static function dataAtual(): string
 {
     $diaMes = date('d');
@@ -115,6 +123,10 @@ public static function url(string $url = null): string
     return $ambiente.'/'.$url;
 }
 
+/**
+ * Checa se o servidor é localhost
+ * @return bool
+ */
 public static function localhost(): bool
 {
     $servidor = filter_input(INPUT_SERVER, 'SERVER_NAME');
