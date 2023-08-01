@@ -15,6 +15,7 @@ try {
     SimpleRouter::get(URL_SITE.'404', 'SiteControlador@erro404');
 
     SimpleRouter::start();
+    
 } catch (Pecee\SimpleRouter\Exceptions\NotFoundHttpException $ex) {
     if(Helpers::localhost()){
         echo $ex->getMessage();
