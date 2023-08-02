@@ -28,6 +28,16 @@ class SiteControlador extends Controlador
         ]);
     }
 
+    public function categoria(int $id):void
+    {
+        $posts = (new CategoriaModelo())->posts($id);
+
+        echo $this->template->renderizar('categoria.html', [
+            'posts' => $posts,
+            'categorias' => $this->categorias(),
+        ]);
+    }
+
     /**
      * Busca post por ID
      * @param int $id

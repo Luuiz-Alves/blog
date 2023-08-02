@@ -16,7 +16,7 @@
         <ul class="dropdown-menu">
             {% for categoria in categorias %}
           <li>
-              <a class="dropdown-item" href="#">
+              <a class="dropdown-item" href="{{url('categoria/'~categoria.id)}}">
                   {{categoria.titulo}}
               </a>
           </li>

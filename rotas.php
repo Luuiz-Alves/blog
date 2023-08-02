@@ -12,6 +12,8 @@ try {
 
     SimpleRouter::get(URL_SITE.'post/{id}', 'SiteControlador@post');
 
+    SimpleRouter::get(URL_SITE.'categoria/{id}', 'SiteControlador@categoria');
+
     SimpleRouter::get(URL_SITE.'404', 'SiteControlador@erro404');
 
     SimpleRouter::start();
