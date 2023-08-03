@@ -24,12 +24,13 @@
         </ul>
       </li>
               <li>
-                  <a href="{{ url('sobre-nos') }}" class="nav-link px-2 text-white" tooltip="tooltip" title="Sobre Nós">Sobre nós</a>
+                  <a href="{{ url('sobre') }}" class="nav-link px-2 text-white" tooltip="tooltip" title="Sobre Nós">Sobre nós</a>
               </li>
           </ul>
 
-          <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-              <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Buscar..." aria-label="Search">
+          <form action="{{ url('buscar') }}" method="post" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+              <input type="search" name="busca" class="form-control form-control-dark text-bg-dark" placeholder="Buscar..." aria-label="Search">
+              <input type="submit" value="Enviar">
           </form>
 
           <div class="text-end">
